@@ -1,0 +1,20 @@
+NAME =	phonebook
+
+SRC =	phonebook.cpp
+HEADER =	phonebook.hpp
+
+CC =	c++
+FLGS =	-Wall -Wextra -Werror -std=c++98
+
+all: ${NAME}
+
+${NAME}:	${SRC} ${HEADER}
+	${CC} ${FLGS} ${SRC} -o ${NAME}
+
+clean:
+	rm -rf ${NAME}
+
+fclean:	clean
+re:	fclean all
+
+.PHONY:	all clean fclean re
