@@ -1,30 +1,49 @@
-#include "phonebook.hpp"
+#include "phonebook_classes.hpp"
 
 using namespace std;
 
 void	add_contact (PhoneBook *phone_book)
 {
 	Contact	contact;
-	string	first_name;
-	string	last_name;
-	string	nickname;
-	string	number;
+	string	secret;
 
 
 	cout << "\tFirst Name : ";
-		cin >> first_name;
+		cin >> contact.first_name;
 	cout << "\tLast Name : ";
-		cin >> last_name;
+		cin >> contact.last_name;
 	cout << "\tNickname : ";
-		cin >> nickname;
+		cin >> contact.nickname;
 	cout << "\tPhone Number : ";
-		cin >> number;
-	contact.set_contact (first_name, last_name, nickname, number);
+		cin >> contact.number;
 	cout << "\tDarkest Secret : ";
-		cin >> first_name;
+		cin >> secret;
 	phone_book->add_contact(contact);
 }
 
+void	search_contacts (PhoneBook phone_book)
+{
+	int index_i;
+	string index_s;
+
+	if (phone_book.contacts[0].exists != 1)
+	{
+		cout << "NO CONTACTS! get some friends!" << endl;
+		return;
+	}
+	cout << "\n";
+	phone_book.print_contacts();
+	cout << "\n\tContact index : ";
+	cin >> index_s;
+	index_i = atoi(index_s.c_str());
+
+	if (index_i < 0
+		|| index_i > PHONEBOOK_LIM
+		|| phone_book.contacts[index_i].exists != 1)
+		cout << "Your index sucks!" << endl;
+	else
+		phone_book.contacts[index_i].print_contact();
+}
 
 int main(void)
 {
@@ -39,6 +58,8 @@ int main(void)
 			add_contact(&pb);
 		else if (cmd == "PRINT")
 			pb.print_contacts();
+		else if (cmd == "SEARCH")
+			search_contacts(pb);
 		else if (cmd == "EXIT")
 			break;
 	}
