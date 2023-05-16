@@ -7,7 +7,6 @@ void	add_contact (PhoneBook *phone_book)
 	Contact	contact;
 	string	secret;
 
-
 	cout << "\tFirst Name : ";
 		cin >> contact.first_name;
 	cout << "\tLast Name : ";
@@ -37,7 +36,8 @@ void	search_contacts (PhoneBook phone_book)
 	cin >> index_s;
 	index_i = atoi(index_s.c_str());
 
-	if (index_i < 0
+	if ((index_i == 0 && index_s.c_str()[0] != '0')
+		|| index_i < 0
 		|| index_i > PHONEBOOK_LIM
 		|| phone_book.contacts[index_i].exists != 1)
 		cout << "Your index sucks!" << endl;
@@ -49,6 +49,11 @@ int main(void)
 {
 	PhoneBook	pb;
 	string		cmd;
+	Contact		contact;
+
+	contact.exists = 0;
+	for (int i = 0; i < PHONEBOOK_LIM; i++)
+		pb.contacts[i] = contact;
 
 	while (1)
 	{
@@ -63,7 +68,6 @@ int main(void)
 		else if (cmd == "EXIT")
 			break;
 	}
-	
 
 	return 0;
 }
