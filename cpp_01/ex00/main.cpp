@@ -22,9 +22,7 @@ int main(void)
 
 	Zombie	*zombie1 =  newZombie(name_str);
 	zombie1->announce();
-	zombie1->~Zombie();
-	
-	
+	delete (zombie1);
 
 	randomChump("random_Zombie");
 
