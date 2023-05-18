@@ -1,6 +1,6 @@
-NAME =	Zombies
+NAME =	Zombies01
 
-SRC =	main.cpp Zombie.cpp
+SRC =	main.cpp Zombie.cpp zombieHorde.cpp
 HEADER =	Zombie.hpp
 
 CC =	g++
