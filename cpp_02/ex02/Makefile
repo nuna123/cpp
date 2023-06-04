@@ -1,4 +1,4 @@
-NAME =	Fixed_useful
+NAME =	Fixed_02
 
 SRC =	main.cpp Fixed.cpp
 HEADER =	Fixed.hpp
@@ -11,7 +11,6 @@ all: ${NAME}
 ${NAME}:	${SRC} ${HEADER}
 	@ ${CC} ${FLGS} ${SRC} -o ${NAME}
 	@ echo '\033[0;32m' ${NAME} "created!" '\033[0m'
-	@ ./${NAME}
 
 clean:
 	@ rm -rf ${NAME}
