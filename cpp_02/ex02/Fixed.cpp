@@ -1,12 +1,4 @@
 #include "./Fixed.hpp"
-/*
-Fixed (); //Default constructor
-Fixed (const Fixed &fixed); //copy constructor
-~Fixed (); // Destructor
-Fixed & operator = (const Fixed &fixed); //Copy assignment operator
-int		getRawBits(void) const;
-void	setRawBits(int const raw);
-*/
 
 
 const int	Fixed::fractional_bits = 8;
@@ -14,12 +6,12 @@ const int	Fixed::fractional_bits = 8;
  //CONSTRUCTORS
 	Fixed::Fixed(void) : value (0)
 	{
-		std::cout << "Default constructor called" <<std::endl;
+		// std::cout << "Default constructor called" <<std::endl;
 	}
 
 	Fixed::Fixed(const int num) : value (num << this->fractional_bits)
 	{
-		std::cout << "const int constructor called" <<std::endl;
+		// std::cout << "const int constructor called" <<std::endl;
 	}
 
 	Fixed::Fixed(const float num)
@@ -30,23 +22,23 @@ const int	Fixed::fractional_bits = 8;
 			floo *= 2;
 		this->value = roundf( floo );
 
-		std::cout << "const float constructor called" <<std::endl;
+		// std::cout << "const float constructor called" <<std::endl;
 	}
 
 	Fixed::Fixed (const Fixed &fixed) //COPY CONSTRUCTOR
 	{
-		std::cout << "Copy constructor called" <<std::endl;
+		// std::cout << "Copy constructor called" <<std::endl;
 		*this = fixed;
 	}
 
 Fixed::~Fixed (void)
 {
-	std::cout << "Destructor called" <<std::endl;
+	// std::cout << "Destructor called" <<std::endl;
 }
 
 Fixed &Fixed::operator = (const Fixed &fixed_copy)
 {
-	std::cout << "Copy assignment operator called" <<std::endl;
+	// std::cout << "Copy assignment operator called" <<std::endl;
 	this->value = fixed_copy.getRawBits();
 	return (*this);
 }
@@ -61,8 +53,6 @@ int	Fixed::getRawBits (void) const
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" <<std::endl;
-
 	this->value = raw;
 }
 
@@ -82,11 +72,10 @@ int		Fixed::toInt( void ) const
 
 
 //OVERLOADING
-std::ostream &operator<<(std::ostream& os, const Fixed& fixed)
-{
-	os << fixed.toFloat();
-	return os;
-}
+	std::ostream &operator<<(std::ostream& os, const Fixed& fixed)
+	{
+		return (os << fixed.toFloat());
+	}
 
 	//comparison operators
 	bool Fixed::operator>(Fixed const& fixed)
@@ -135,3 +124,60 @@ std::ostream &operator<<(std::ostream& os, const Fixed& fixed)
 		Fixed res(this->toFloat() / fixed.toFloat());
 		return (res);
 	}
+
+
+	// increase, decrease prefix and postfix
+	Fixed& Fixed::operator++(void)
+	{
+		this->setRawBits(this->getRawBits() + 1);
+		return (*this);
+	}
+	Fixed& Fixed::operator--(void)
+	{
+		this->setRawBits(this->getRawBits() - 1);
+		return (*this);
+	}
+
+	Fixed Fixed::operator ++ (int val)
+	{
+		Fixed temp;
+		temp = *this;
+		if (!val)
+			val = 1;
+		this->setRawBits(this->getRawBits() + val);
+		return (temp);
+	}
+	Fixed Fixed::operator -- (int val) {
+		Fixed temp;
+		temp  = *this;
+		if (!val)
+			val = 1;
+		this->setRawBits(this->getRawBits() - val);
+		return (temp);
+	}
+
+//member functions
+		Fixed& Fixed::min(Fixed& fixed_1, Fixed& fixed_2)
+		{
+			if (fixed_1 > fixed_2)
+				return (fixed_2);
+			return (fixed_1);
+		}
+		const Fixed& Fixed::min(Fixed const& fixed_1, Fixed const& fixed_2)
+		{
+			if (fixed_1.getRawBits() > fixed_2.getRawBits())
+				return (fixed_2);
+			return (fixed_1);
+		}
+		Fixed& Fixed::max(Fixed& fixed_1, Fixed& fixed_2)
+		{
+			if (fixed_1 < fixed_2)
+				return (fixed_2);
+			return (fixed_1);
+		}
+		const Fixed& Fixed::max(Fixed const& fixed_1, Fixed const& fixed_2)
+		{
+			if (fixed_1.getRawBits() < fixed_2.getRawBits())
+				return (fixed_2);
+			return (fixed_1);
+		}

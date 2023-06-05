@@ -39,6 +39,18 @@ class	Fixed
 		Fixed operator*(Fixed const& fixed);
 		Fixed operator/(Fixed const& fixed);
 
+		//INCREASE / DECREASE OPERATORS
+		Fixed& operator++(void);
+		Fixed& operator--(void);
+		Fixed operator ++ (int val);
+		Fixed operator -- (int val);
+
+		//member functions
+		static Fixed& min(Fixed& fixed_1, Fixed& fixed_2);
+		static const Fixed& min(Fixed const& fixed_1, Fixed const& fixed_2);
+		static Fixed& max(Fixed& fixed_1, Fixed& fixed_2);
+		static const Fixed& max(Fixed const& fixed_1, Fixed const& fixed_2);
+
 };
 		std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 #endif
