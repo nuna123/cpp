@@ -118,11 +118,24 @@ Point	*find_first_division(Point pnt_A, Point pnt_B, Point pnt_C)
 
 	pnt_c_edge = get_line_x (pnt_A, pnt_B, pnt_C.getY().toFloat());
 	if (!pnt_c_edge)
-		pnt_c_edge = get_line_y (pnt_A, pnt_B, pnt_C.getY().toFloat());
+		pnt_c_edge = get_line_y (pnt_A, pnt_B, pnt_C.getX().toFloat());
 
-	if (!pnt_a_edge || !pnt_b_edge || !pnt_c_edge)
-		std::cout << "WTF\n" ;
+	// std::cout << *pnt_b_edge << std::endl;
 
+	if (!pnt_a_edge)
+		std::cout << "WTF A \n" ;
+	else
+		std::cout << *pnt_a_edge << std::endl;
+	if (!pnt_b_edge)
+		std::cout << "WTF B \n" ;
+	else
+		std::cout << *pnt_b_edge << std::endl;
+	if (!pnt_c_edge)
+		std::cout << "WTF C \n" ;
+	else
+		std::cout << *pnt_c_edge << std::endl;
+
+	return NULL;
 	//EDGES ARE NOT BEING INITIALIZED COMPLETELY
 
 
@@ -177,8 +190,8 @@ int main( void )
 	{
 
 	Point a(5, 5);
-	Point b(0, 0);
-	Point c(0, 5);
+	Point b(3, 0);
+	Point c(0, 10);
 
 	Point *wtf_ol = find_first_division(a, b, c);
 

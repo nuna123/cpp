@@ -33,3 +33,9 @@ Fixed	Point::getY(void) const
 {
 	return (this->y);
 }
+
+
+std::ostream &operator<<(std::ostream& os, const Point& point)
+{
+	return (os << "[" << point.getX() << " , " << point.getY() << "]");
+}

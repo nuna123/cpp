@@ -16,5 +16,3 @@ int main( void )
 		std::cout << "MAX " << Fixed::max( a, b ) << std::endl;
 	return 0;
 }
-
-//STILL NEED INCREMENT/DEC OPS
