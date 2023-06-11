@@ -3,6 +3,16 @@
 
 #include <iostream>
 
+void	delete_pnts(Point *pntA, Point *pntB, Point *pntC)
+{
+	if (pntA)
+		delete (pntA);
+	if (pntB)
+		delete (pntB);
+	if (pntC)
+		delete (pntC);
+}
+
 float	findSqrt(float x)
 {
 	// for 0 and 1, the square roots are themselves
@@ -107,7 +117,9 @@ Point	*get_line_y(Point linepnt_a, Point linepnt_b, float x_coor)
 
 Point	*find_first_division(Point pnt_A, Point pnt_B, Point pnt_C)
 {
-	Point* pnt_a_edge, *pnt_b_edge, *pnt_c_edge;
+	Point*	pnt_a_edge, *pnt_b_edge, *pnt_c_edge;
+	Fixed*	dis_A, *dis_B, *dis_C = NULL;
+
 	pnt_a_edge = get_line_x (pnt_B, pnt_C, pnt_A.getY().toFloat());
 	if (!pnt_a_edge)
 		pnt_a_edge = get_line_y (pnt_B, pnt_C, pnt_A.getX().toFloat());
@@ -120,30 +132,28 @@ Point	*find_first_division(Point pnt_A, Point pnt_B, Point pnt_C)
 	if (!pnt_c_edge)
 		pnt_c_edge = get_line_y (pnt_A, pnt_B, pnt_C.getX().toFloat());
 
-	// std::cout << *pnt_b_edge << std::endl;
 
-	if (!pnt_a_edge)
-		std::cout << "WTF A \n" ;
+	if (pnt_a_edge)
+	{
+		dis_A = get_points_distance(pnt_A, *pnt_a_edge);
+		std::cout << "A" << *pnt_a_edge << " --- " <<*dis_A << std::endl;
+	}
 	else
-		std::cout << *pnt_a_edge << std::endl;
-	if (!pnt_b_edge)
-		std::cout << "WTF B \n" ;
+		dis_A = new Fixed(0);
+	if (pnt_b_edge)
+	{
+		dis_B = get_points_distance(pnt_B, *pnt_b_edge);
+		std::cout << "B" << *pnt_b_edge << " --- " <<*dis_B << std::endl;
+	}
 	else
-		std::cout << *pnt_b_edge << std::endl;
-	if (!pnt_c_edge)
-		std::cout << "WTF C \n" ;
+		dis_B = new Fixed(0);
+	if (pnt_c_edge)
+	{
+		dis_C = get_points_distance(pnt_C, *pnt_c_edge);
+		std::cout << "C"<< *pnt_c_edge << " --- " << *dis_C << std::endl;
+	}
 	else
-		std::cout << *pnt_c_edge << std::endl;
-
-	return NULL;
-	//EDGES ARE NOT BEING INITIALIZED COMPLETELY
-
-
-
-	Fixed*	dis_A, *dis_B, *dis_C;
-	dis_A = get_points_distance(pnt_A, *pnt_a_edge);
-	dis_B = get_points_distance(pnt_B, *pnt_b_edge);
-	dis_C = get_points_distance(pnt_C, *pnt_c_edge);
+		dis_C = new Fixed(0);
 
 	if (*dis_A >= *dis_B)
 	{
@@ -164,7 +174,7 @@ Point	*find_first_division(Point pnt_A, Point pnt_B, Point pnt_C)
 			return (pnt_c_edge);
 		}
 	}
-	else if (*dis_B > *dis_A)
+	else if (*dis_B >= *dis_A)
 	{
 		delete (pnt_a_edge);
 		delete (dis_A);
@@ -186,6 +196,56 @@ Point	*find_first_division(Point pnt_A, Point pnt_B, Point pnt_C)
 	return NULL;
 }
 
+bool fml(point	*triangle[3], Point *divline_A, Point *divline_B, Point *pnt, bool isVertical)
+{
+	Point	*tmp, *tmp2 = NULL;
+	Point	*new_dev_pnt;
+
+	if ((isVertical && divline_A->getX() == pnt->getX()) // point is on the same line
+	|| (!isVertical && divline_A->getY() == pnt->getY()))
+	{
+		if (point_on_line(*divline_A, *divline_B, *pnt))
+		{
+			delete_pnts(divline_A, divline_B, pnt);
+			return true;
+		}
+		else
+		{
+			delete_pnts(divline_A, divline_B, pnt);
+			return false;
+		}
+	}
+
+
+	//WTF IS HAPPENING
+
+	if (isVertical)
+	{
+		Fixed *newY = NULL;
+		if (divlineA->getY() < divlineA->getX())
+		{
+			newY = get_points_distance(divlineA);
+			*newY += divlineA->getY();
+		}
+
+		new_dev_point = new Point(divline_A->getX(), );
+		if (divline_A->getX() > pnt->getX())
+		{
+			tmp = get_line_x(*triangle[0], *triangle[1], )
+
+
+
+
+
+
+		}
+		else if (divline_A->getX() < pnt->getX())
+		{
+
+		}
+	}
+
+}
 int main( void )
 	{
 
@@ -196,9 +256,9 @@ int main( void )
 	Point *wtf_ol = find_first_division(a, b, c);
 
 	if (wtf_ol)
-		std::cout << "OMFG\n" ;
-
-
+		std::cout << *wtf_ol <<"OMFG\n" ;
+	else
+		std::cout << ":(((((\n" ;
 	delete(wtf_ol);
 
 
