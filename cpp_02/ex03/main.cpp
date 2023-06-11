@@ -219,6 +219,32 @@ bool fml(point	*triangle[3], Point *divline_A, Point *divline_B, Point *pnt, boo
 
 	//WTF IS HAPPENING
 
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
+	//WTF IS HAPPENING
+
 	if (isVertical)
 	{
 		Fixed *newY = NULL;
