@@ -4,6 +4,8 @@ int	main(int argc, char **argv)
 {
 	int	i;
 
+	putchar("sadf");
+
 	if (argc == 1)
 		return (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n", 0);
 	argv++;

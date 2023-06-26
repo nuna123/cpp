@@ -1,7 +1,7 @@
-NAME =	FragTrap
+NAME =	Polymorphism
 
-SRC =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
-HEADER =	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+SRC =	main.cpp Animal.cpp Dog.cpp Cat.cpp
+HEADER =	polymorphism.hpp
 
 CC =	g++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g

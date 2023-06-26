@@ -1,6 +1,6 @@
-NAME =	ClapTrap_ex01
+NAME =	ScavTrap
 
-SRC =	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC =		main.cpp ClapTrap.cpp ScavTrap.cpp
 HEADER =	ClapTrap.hpp ScavTrap.hpp
 
 CC =	g++
