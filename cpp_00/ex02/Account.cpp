@@ -23,7 +23,7 @@ void	Account::_displayTimestamp( void )
 				<<  "_"
 				<<  std::setw(2) << std::localtime(&result)->tm_hour
 				<<  std::setw(2) << std::localtime(&result)->tm_min
-				<<  std::setw(2) << std::localtime(&result)->tm_sec 
+				<<  std::setw(2) << std::localtime(&result)->tm_sec
 				<< "] " << std::flush;
 }
 
@@ -53,7 +53,7 @@ Account::Account( int initial_deposit ) //constructor
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
 
-	this->_displayTimestamp();
+	_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex << ";"
 				<< "amount:" << _amount << ";"
 				<< "created" << std::endl;
@@ -63,7 +63,7 @@ Account::~Account( void ) //Destructor
 {
 	_nbAccounts --;
 	_totalAmount -= this->_amount;
-	this->_displayTimestamp();
+	_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex << ";"
 				<< "amount:" << _amount << ";"
 				<< "closed" << std::endl;
@@ -76,7 +76,7 @@ void	Account::makeDeposit( int deposit )
 
 	this->_nbDeposits++;
 	this->_amount += deposit;
-	
+
 	this->_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex << ";"
 				<< "p_amount:" << _amount - deposit << ";"

@@ -1,7 +1,7 @@
 NAME =	phonebook
 
-SRC =	phonebook.cpp phonebook_classes.cpp
-HEADER =	phonebook_classes.hpp
+SRC =	main.cpp PhoneBook.cpp Contact.cpp
+HEADER =	Contact.hpp	PhoneBook.hpp
 
 CC =	c++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g

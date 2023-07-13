@@ -1,4 +1,5 @@
-#include "phonebook_classes.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 using namespace std;
 
@@ -57,12 +58,12 @@ int main(void)
 
 	while (1)
 	{
-		cout << "Command : ";
+		cout << "Command [SEARCH/ADD/EXIT]: ";
 		cin >> cmd;
 		if (cmd == "ADD")
 			add_contact(&pb);
-		else if (cmd == "PRINT")
-			pb.print_contacts();
+/* 		else if (cmd == "PRINT")
+			pb.print_contacts(); */
 		else if (cmd == "SEARCH")
 			search_contacts(pb);
 		else if (cmd == "EXIT")
