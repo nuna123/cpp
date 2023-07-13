@@ -3,7 +3,7 @@ NAME =	Zombies
 SRC =	main.cpp Zombie.cpp
 HEADER =	Zombie.hpp
 
-CC =	g++
+CC =	c++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g
 
 all: ${NAME}

@@ -38,6 +38,34 @@ class Dog: public Animal
 		// Dog &operator=(const Dog &dog); //is inherited by Animal class
 };
 
+
+class WrongAnimal
+{
+	protected:
+		std::string	type;
+		std::string	my_sound = "Hello I am a wrongAnimal and this is my sound";
+
+	public:
+		WrongAnimal();
+		WrongAnimal(std::string	type);
+		~WrongAnimal();
+		WrongAnimal(const WrongAnimal &animal_cpy);
+		WrongAnimal &operator = (const WrongAnimal &animal_cpy);
+
+		std::string get_type() const;
+		void make_sound() const;
+};
+
+class WrongCat: public Animal
+{
+	public:
+		WrongCat();
+		~WrongCat();
+		WrongCat(const WrongCat &cat);
+		// Cat &operator=(const Cat &cat); //is inherited by Animal class
+};
+
+
 #endif
 ////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////		INFO	////////////////////////////////////////////

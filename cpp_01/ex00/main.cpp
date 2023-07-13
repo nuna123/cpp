@@ -17,14 +17,18 @@ void randomChump( std::string name )
 
 int main(void)
 {
-	// const char	*name_char = "zombie 1";
-	std::string	name_str = "zombie 2";
+	std::string	name_str = "Bernard";
 
+
+	std::cout << "\tcreating a zombie from newZombie() func. allocating on the heap." << std::endl;
 	Zombie	*zombie1 =  newZombie(name_str);
 	zombie1->announce();
 	delete (zombie1);
 
-	randomChump("random_Zombie");
+
+	std::cout << "\tcreating a zombie from randomChump() func. allocating on the stack." << std::endl;
+
+	randomChump("Tony");
 
 	return 0;
 }

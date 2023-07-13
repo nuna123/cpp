@@ -3,7 +3,7 @@ NAME =	phonebook
 SRC =	phonebook.cpp phonebook_classes.cpp
 HEADER =	phonebook_classes.hpp
 
-CC =	g++
+CC =	c++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g
 
 all: ${NAME}

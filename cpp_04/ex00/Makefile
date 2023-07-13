@@ -3,7 +3,7 @@ NAME =	Polymorphism
 SRC =	main.cpp Animal.cpp Dog.cpp Cat.cpp
 HEADER =	polymorphism.hpp
 
-CC =	g++
+CC =	c++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g
 
 all: ${NAME}
