@@ -5,14 +5,11 @@
 #include <fstream>
 #include <iostream>
 
-
-
-
 int	main(int argc, char *argv[])
 {
 	if (argc != 4)
 		return (
-			std::cout	<< "Wrong num of Arguments! usage: [filename] [s1] [s2]" 
+			std::cout	<< "Wrong num of Arguments! usage: [filename] [s1] [s2]"
 						<< std::endl,
 			 1);
 
@@ -25,17 +22,22 @@ int	main(int argc, char *argv[])
 	std::string		str_toreplace = argv[3];
 
 	infile.open(filename.c_str());
-	outfile.open((filename + ".replaced").c_str());
-	if(!infile || !outfile) // file couldn't be opened
+
+	if(!infile) // file couldn't be opened
 		return (
 			std::cout	<< "Error: file could not be opened"
 						<< std::endl,
 			 1);
+	outfile.open((filename + ".replaced").c_str());
+	if(!outfile) // file couldn't be opened
+		return (infile.close(),
+			std::cout	<< "Error: file could not be opened"
+						<< std::endl,
+			 1);
 
-	while(!infile.eof()) 
+	while(!infile.eof())
 	{
 		getline(infile,content);
-		outfile << "";
 
 		while (content.find(str_tofind) != std::string::npos)
 		{
@@ -49,7 +51,8 @@ int	main(int argc, char *argv[])
 	}
 
 	infile.close();
-	
+	outfile.close();
+
 	return 0;
 
 }

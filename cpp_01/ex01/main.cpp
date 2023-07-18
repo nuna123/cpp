@@ -8,9 +8,11 @@ int main(void)
 
 	for (int i = 0; i < num; i++)
 	{
+		std::cout << i << ": ";
 		horde[i].announce();
 	}
-		
+
+std::cout << "\tdeleting horde..." << std::endl;
 	delete [] horde;
 
 	return 0;

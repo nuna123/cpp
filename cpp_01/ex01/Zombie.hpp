@@ -1,5 +1,3 @@
-
-#pragma once
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
@@ -12,11 +10,11 @@ class	Zombie
 {
 	public:
 		void	announce( void );
-		void	set_name(char	*name);
+		void	set_name(std::string	name);
 		~Zombie (void);
 
 	private:
-		const char	*name;
+		std::string	name;
 
 };
 

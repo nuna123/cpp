@@ -1,9 +1,9 @@
-NAME =	HarlFilter
+NAME =	harlFilter
 
 SRC =	main.cpp Harl.cpp
 HEADER =	Harl.hpp
 
-CC =	g++
+CC =	c++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g
 
 all: ${NAME}

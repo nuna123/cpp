@@ -1,17 +1,18 @@
-
-#pragma once
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
+
+#include <iostream>
 
 class	Zombie
 {
 	public:
 		void	announce( void );
 		~Zombie (void);
-		Zombie (const char	*name);
+		Zombie (std::string	name);
 
 	private:
-		const char	*name;
+		std::string	name;
+
 
 };
 

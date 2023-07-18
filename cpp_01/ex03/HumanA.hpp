@@ -9,8 +9,6 @@
 
 class	HumanA
 {
-	
-
 	private:
 		std::string	name;
 		Weapon		&weapon;
@@ -18,7 +16,6 @@ class	HumanA
 	public:
 		HumanA(std::string name, Weapon &weapon);
 		void	attack(void);
-
 };
 
 

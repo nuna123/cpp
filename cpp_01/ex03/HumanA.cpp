@@ -5,6 +5,7 @@
 	// used to intialise data members of a class,
 	// has to be used for initialization of reference members
 
+
 HumanA::HumanA (std::string name, Weapon &weapon) : name(name), weapon(weapon){};
 
 
