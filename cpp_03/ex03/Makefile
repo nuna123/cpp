@@ -3,7 +3,7 @@ NAME =	DiamondTrap
 SRC =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 HEADER =	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
-CC =	g++
+CC =	c++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g
 
 all: ${NAME}

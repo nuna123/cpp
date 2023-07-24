@@ -3,7 +3,7 @@ NAME =	Fixed_03
 SRC =	main.cpp Fixed.cpp Point.cpp
 HEADER =	Fixed.hpp
 
-CC =	g++
+CC =	c++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g
 
 all: ${NAME} run
