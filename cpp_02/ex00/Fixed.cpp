@@ -8,6 +8,9 @@ int		getRawBits(void) const;
 void	setRawBits(int const raw);
 */
 
+
+const int Fixed::fractional_bits = 8;
+
 Fixed::Fixed(void) : value (0)
 {
 	std::cout << "Default constructor called" <<std::endl;
@@ -16,7 +19,11 @@ Fixed::Fixed(void) : value (0)
 Fixed::Fixed (const Fixed &fixed)
 {
 	std::cout << "Copy constructor called" <<std::endl;
-	*this = fixed;
+
+	this->value = fixed.getRawBits();
+
+	// *this = fixed;
+	//Incorrect! this would replicate the system's "shallow copying" problem. more in main notes
 }
 
 Fixed::~Fixed (void)
@@ -37,6 +44,7 @@ int	Fixed::getRawBits (void) const
 
 	return this->value;
 }
+
 
 void	Fixed::setRawBits(int const raw)
 {
