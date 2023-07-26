@@ -3,9 +3,9 @@
 
 int	main( void )
 {
-	ClapTrap cl4ptp("cl4ptp");
+	ClapTrap cl4ptp("WittyWill");
 
-	cl4ptp.attack("Handsome Jack");
+	cl4ptp.attack("HandsomeJack");
 	cl4ptp.takeDamage(6);
 	cl4ptp.beRepaired(4);
 	cl4ptp.takeDamage(3);

@@ -1,14 +1,9 @@
 
-#include	"FragTrap.hpp"
+#include	"DiamondTrap.hpp"
 
 int	main( void )
 {
-	FragTrap frog("frog");
-	frog.attack("Bob");
-	frog.takeDamage(4);
-	frog.beRepaired(1);
-	frog.highFivesGuys();
-
+	DiamondTrap didi;
 
 
 /* 	clappy.attack("Handsome Jack");

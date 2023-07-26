@@ -4,7 +4,7 @@
 
 int	main( void )
 {
-	ScavTrap scavvy("clappy");
+	ScavTrap scavvy("Clappy");
 	scavvy.attack("Bob");
 	scavvy.takeDamage(4);
 	scavvy.beRepaired(1);

@@ -32,7 +32,8 @@ void		ClapTrap::attack(const std::string& target)
 		std::cout << this->get_name() << "can't attack, no Energy points left!" << std::endl;
 	else
 	{
-		std::cout << this->get_name()
+		std::cout << "ClapTrap "
+					<< this->get_name()
 					<< " attacked " << target
 					<< " causing " << this->get_attack_damage()
 					<< " points of damage!" << std::endl;
@@ -58,7 +59,7 @@ void		ClapTrap::beRepaired(unsigned int amount)
 	{
 		this->Energy_Points --;
 		this->Hit_Points += amount;
-		std::cout << this->get_name() << " got " << amount << " more hit points!" << std::endl;
+		std::cout << this->get_name() << " got repaired. Recieved " << amount << " more hit points!" << std::endl;
 	}
 
 }

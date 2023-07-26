@@ -3,12 +3,16 @@
 ClapTrap::ClapTrap(std::string name)
 	: Name(name), Hit_Points(10), Energy_Points(10), Attack_damage(0)
 {
-	std::cout << "constructor called. Hello world!" << std::endl;
+	std::cout << "ClapTrap constructor called. Hello world!" << std::endl;
+}
+ClapTrap::ClapTrap()
+{
+	ClapTrap("default_claptrap");
 }
 
 ClapTrap::ClapTrap(std::string name, int hitpoints, int energy_points, int attack_damage)
 {
-	std::cout << "constructor called. Hello world!" << std::endl;
+	std::cout << "ClapTrap constructor called. Hello world!" << std::endl;
 
 	this->Name = name;
 	this->Hit_Points = hitpoints;
@@ -20,7 +24,7 @@ ClapTrap::ClapTrap(const ClapTrap &clap_trap)
 	:	Name(clap_trap.get_name()), Hit_Points(clap_trap.get_hit_points()),
 		Energy_Points(clap_trap.get_energy_points()), Attack_damage(clap_trap.get_attack_damage())
 {
-	std::cout << "constructor called. Hello world!" << std::endl;
+	std::cout << "ClapTrap constructor called. Hello world!" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &clap_trap)
@@ -30,13 +34,13 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &clap_trap)
 	this->Energy_Points = clap_trap.get_energy_points();
 	this->Attack_damage = clap_trap.get_attack_damage();
 
-	std::cout << "constructor called. Hello world!" << std::endl;
+	std::cout << "ClapTrap constructor called. Hello world!" << std::endl;
 	return *this;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "destructor called. Goodbye cruel world!" << std::endl;
+	std::cout << "ClapTrap destructor called. Goodbye cruel world!" << std::endl;
 }
 
 
