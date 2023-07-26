@@ -1,26 +1,34 @@
-// in main  - already have func for finding first division.
-// find if its vertical or horizontal, and what point it connects to.
-// if horizontal, compare pnt to find to the line's y
-// otherwise, compare to x.
-
-//find midpoint, divide in the right way according to comparison
-// new line, same point and orientation is flipped (horizontal/ vertical)
- //THIS SHIT STOPS WHEN LINE HITS THE PNT. THEN THE DISTANCE TO THE EDGE OF
- //	THE LINE CAN BE COMPARED TO SEE IF IS IN TRIANGLE
 #include "Point.hpp"
 #include "Fixed.hpp"
 
 #include <iostream>
 
-// bool fml(Point *divline_A, Point *divline_B, Point *pnt, bool isVertical)
-// {
-// 	if (isVertical)
-// 	{
-// 		if (divline_A->getX() == pnt->getX())
-// 		{
-// 			if ()
-// 		}
+Fixed triangle_area(Point const a, Point const b, Point const c)
+{
+//Area A = [ x1(y2 – y3) + x2(y3 – y1) + x3(y1-y2)]/2
 
-// 	}
+	Fixed area;
+	area = a.getX() * (b.getY() - c.getY());
+	area = area + (b.getX() * (c.getY() - a.getY()));
+	area = area + (c.getX() * (a.getY() - b.getY()));
+	area = area / 2;
 
-// }
+	if (area < 0)
+		return (area * -1);
+	return area;
+}
+
+bool bsp( Point const a, Point const b, Point const c, Point const point)
+{
+	Fixed triangle_A = triangle_area(point, a, b);
+	Fixed triangle_B = triangle_area(point, b, c);
+	Fixed triangle_C = triangle_area(point, c, a);
+
+	if (triangle_A == 0
+		|| triangle_B == 0
+		|| triangle_C == 0)
+		return false;
+	if (triangle_area(a, b, c) == (triangle_A + triangle_B + triangle_C))
+		return true;
+	return false;
+}

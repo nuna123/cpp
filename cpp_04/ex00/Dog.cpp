@@ -1,6 +1,6 @@
 #include "polymorphism.hpp"
 
-using namespace std;
+
 
 Dog::Dog(): Animal("dog")
 {

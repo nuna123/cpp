@@ -19,7 +19,7 @@ Fixed::Fixed(void) : value (0)
 
 Fixed::Fixed(const int num) : value (num << this->fractional_bits)
 {
-	std::cout << "const int constructor called" <<std::endl;
+	std::cout << "Int constructor called" <<std::endl;
 }
 
 Fixed::Fixed(const float num)
@@ -30,13 +30,14 @@ Fixed::Fixed(const float num)
 		floo *= 2;
 	this->value = roundf( floo );
 
-	std::cout << "const float constructor called" <<std::endl;
+	std::cout << "Float constructor called" <<std::endl;
 }
 
 Fixed::Fixed (const Fixed &fixed) //COPY CONSTRUCTOR
 {
 	std::cout << "Copy constructor called" <<std::endl;
-	*this = fixed;
+
+	this->value = fixed.getRawBits();
 }
 
 Fixed::~Fixed (void)

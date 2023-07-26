@@ -28,7 +28,8 @@ const int	Fixed::fractional_bits = 8;
 	Fixed::Fixed (const Fixed &fixed) //COPY CONSTRUCTOR
 	{
 		// std::cout << "Copy constructor called" <<std::endl;
-		*this = fixed;
+
+		this->value = fixed.getRawBits();
 	}
 
 Fixed::~Fixed (void)
@@ -103,7 +104,7 @@ int		Fixed::toInt( void ) const
 		return (this->toInt() != fixed.toInt());
 	}
 
-	//comparison operators
+	//arithmatic operators
 	Fixed Fixed::operator+(Fixed const& fixed)
 	{
 		Fixed res(this->toFloat() + fixed.toFloat());
@@ -121,6 +122,8 @@ int		Fixed::toInt( void ) const
 	}
 	Fixed Fixed::operator/(Fixed const& fixed)
 	{
+		if (fixed.toFloat() == 0)
+			return this->toFloat();
 		Fixed res(this->toFloat() / fixed.toFloat());
 		return (res);
 	}

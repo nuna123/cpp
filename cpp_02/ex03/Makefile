@@ -1,6 +1,6 @@
-NAME =	Fixed_03
+NAME =	BSP
 
-SRC =	main.cpp Fixed.cpp Point.cpp
+SRC =	main.cpp Fixed.cpp Point.cpp bsp.cpp
 HEADER =	Fixed.hpp
 
 CC =	c++

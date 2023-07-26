@@ -29,4 +29,19 @@ class	Fixed
 
 };
 		std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+
+/*
+	fractional bits are how many of the rightmost bits will be fractional,
+		basically where does the fractional point stand.
+
+
+	to turn it from INT to FLOAT the number basically needs to be transposed, shifted, to
+	the right till the point stands in the correct place.
+
+	the other way for turning from FLOAT to INT
+*/
+
+
+
+
 #endif

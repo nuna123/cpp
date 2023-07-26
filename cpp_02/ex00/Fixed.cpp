@@ -9,7 +9,7 @@ void	setRawBits(int const raw);
 */
 
 
-const int Fixed::fractional_bits = 8;
+const int	Fixed::fractional_bits = 8;
 
 Fixed::Fixed(void) : value (0)
 {

@@ -76,7 +76,7 @@ class WrongCat: public Animal
 	MEMBER MODES:
 			ex:
 				PUBLIC:
-					string	type;
+					std::string	type;
 		Public:
 				When the member is declared as public, it is accessible to all the functions of the program.
 		Private:

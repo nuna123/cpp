@@ -28,7 +28,7 @@ const int	Fixed::fractional_bits = 8;
 	Fixed::Fixed (const Fixed &fixed) //COPY CONSTRUCTOR
 	{
 		// std::cout << "Copy constructor called" <<std::endl;
-		*this = fixed;
+		this->value = fixed.getRawBits();
 	}
 
 Fixed::~Fixed (void)

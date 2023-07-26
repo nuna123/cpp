@@ -1,47 +1,45 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-using namespace std;
-
 void	add_contact (PhoneBook *phone_book)
 {
 	Contact	contact;
-	string	secret;
+	std::string	secret;
 
-	cout << "\tFirst Name : ";
-		cin >> contact.first_name;
-	cout << "\tLast Name : ";
-		cin >> contact.last_name;
-	cout << "\tNickname : ";
-		cin >> contact.nickname;
-	cout << "\tPhone Number : ";
-		cin >> contact.number;
-	cout << "\tDarkest Secret : ";
-		cin >> secret;
+	std::cout << "\tFirst Name : ";
+		std::cin >> contact.first_name;
+	std::cout << "\tLast Name : ";
+		std::cin >> contact.last_name;
+	std::cout << "\tNickname : ";
+		std::cin >> contact.nickname;
+	std::cout << "\tPhone Number : ";
+		std::cin >> contact.number;
+	std::cout << "\tDarkest Secret : ";
+		std::cin >> secret;
 	phone_book->add_contact(contact);
 }
 
 void	search_contacts (PhoneBook phone_book)
 {
 	int index_i;
-	string index_s;
+	std::string index_s;
 
 	if (phone_book.contacts[0].exists != 1)
 	{
-		cout << "NO CONTACTS! get some friends!" << endl;
+		std::cout << "NO CONTACTS! get some friends!" << std::endl;
 		return;
 	}
-	cout << "\n";
+	std::cout << "\n";
 	phone_book.print_contacts();
-	cout << "\n\tContact index : ";
-	cin >> index_s;
+	std::cout << "\n\tContact index : ";
+	std::cin >> index_s;
 	index_i = atoi(index_s.c_str());
 
 	if ((index_i == 0 && index_s.c_str()[0] != '0')
 		|| index_i < 0
 		|| index_i > PHONEBOOK_LIM
 		|| phone_book.contacts[index_i].exists != 1)
-		cout << "Your index sucks!" << endl;
+		std::cout << "Your index sucks!" << std::endl;
 	else
 		phone_book.contacts[index_i].print_contact();
 }
@@ -49,7 +47,7 @@ void	search_contacts (PhoneBook phone_book)
 int main(void)
 {
 	PhoneBook	pb;
-	string		cmd;
+	std::string		cmd;
 	Contact		contact;
 
 	contact.exists = 0;
@@ -58,8 +56,8 @@ int main(void)
 
 	while (1)
 	{
-		cout << "Command [SEARCH/ADD/EXIT]: ";
-		cin >> cmd;
+		std::cout << "Command [SEARCH/ADD/EXIT]: ";
+		std::cin >> cmd;
 		if (cmd == "ADD")
 			add_contact(&pb);
 /* 		else if (cmd == "PRINT")
