@@ -5,10 +5,10 @@ ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "ClapTrap constructor called. Hello world!" << std::endl;
 }
-ClapTrap::ClapTrap()
-{
-	ClapTrap("default_claptrap");
-}
+
+
+ClapTrap::ClapTrap(void): Name("defaultClapTrap"), Hit_Points(10), Energy_Points(10), Attack_damage(0)
+{std::cout << "ClapTrap default constructor called. Hello world!" << std::endl;}
 
 ClapTrap::ClapTrap(std::string name, int hitpoints, int energy_points, int attack_damage)
 {
@@ -90,3 +90,13 @@ int			ClapTrap::get_energy_points(void) const
 	{return this->Energy_Points;}
 int			ClapTrap::get_attack_damage(void) const
 	{return this->Attack_damage;}
+
+
+
+void ClapTrap::stats(void)
+{
+	std::cout	<< "\tName: " << this->Name << std::endl
+				<< "\tHit Points: " << this->Hit_Points << std::endl
+				<< "\tEnergy Points: " << this->Energy_Points << std::endl
+				<< "\tAttack Damage: " << this->Attack_damage << std::endl;
+}

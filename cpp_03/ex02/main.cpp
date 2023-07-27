@@ -4,6 +4,9 @@
 int	main( void )
 {
 	FragTrap frog("frog");
+
+	frog.stats();
+
 	frog.attack("Bob");
 	frog.takeDamage(4);
 	frog.beRepaired(1);

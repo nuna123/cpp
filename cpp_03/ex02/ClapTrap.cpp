@@ -40,6 +40,14 @@ ClapTrap::~ClapTrap(void)
 }
 
 
+void ClapTrap::stats(void)
+{
+	std::cout	<< "\tName: " << this->Name << std::endl
+				<< "\tHit Points: " << this->Hit_Points << std::endl
+				<< "\tEnergy Points: " << this->Energy_Points << std::endl
+				<< "\tAttack Damage: " << this->Attack_damage << std::endl;
+}
+
 void		ClapTrap::attack(const std::string& target)
 {
 	if (this->get_energy_points() <= 0)

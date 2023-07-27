@@ -12,6 +12,7 @@ class	ClapTrap
 		int			Attack_damage;
 
 	public:
+		ClapTrap(void);
 		ClapTrap(std::string name);
 		ClapTrap (const ClapTrap &clap_trap);
 		~ClapTrap(void);
@@ -20,6 +21,8 @@ class	ClapTrap
 		void		attack(const std::string& target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
+
+		void		stats(void);
 
 		std::string	get_name(void) const;
 		int			get_hit_points(void) const;

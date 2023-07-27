@@ -3,12 +3,13 @@
 
 int	main( void )
 {
-	ClapTrap cl4ptp("WittyWill");
+	ClapTrap clapTrap("WittyWill");
 
-	cl4ptp.attack("HandsomeJack");
-	cl4ptp.takeDamage(6);
-	cl4ptp.beRepaired(4);
-	cl4ptp.takeDamage(3);
-	cl4ptp.beRepaired(8);
-	cl4ptp.takeDamage(17);
+	clapTrap.stats();
+	clapTrap.attack("HandsomeJack");
+	clapTrap.takeDamage(6);
+	clapTrap.beRepaired(4);
+	clapTrap.takeDamage(3);
+	clapTrap.beRepaired(8);
+	clapTrap.takeDamage(17);
 }

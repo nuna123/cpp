@@ -3,16 +3,17 @@
 
 int	main( void )
 {
-	DiamondTrap didi;
+	DiamondTrap didi("didi");
 
+	didi.stats();
 
-/* 	clappy.attack("Handsome Jack");
-	clappy.takeDamage(6);
-	clappy.beRepaired(4);
-	clappy.takeDamage(3);
-	clappy.beRepaired(8);
-	clappy.takeDamage(17); */
+	std::cout << std::endl;
+	didi.whoAmI();
+
+	std::cout << std::endl;
+	didi.attack("ATTACKEE");
 }
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////		INFO	////////////////////////////////////////////
 /*

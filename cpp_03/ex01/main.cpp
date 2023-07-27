@@ -5,6 +5,10 @@
 int	main( void )
 {
 	ScavTrap scavvy("Clappy");
+
+	ScavTrap scav_cpy(scavvy);
+	scav_cpy.stats();
+
 	scavvy.attack("Bob");
 	scavvy.takeDamage(4);
 	scavvy.beRepaired(1);

@@ -28,6 +28,8 @@ class	ClapTrap
 		int			get_energy_points(void) const;
 		int			get_attack_damage(void) const;
 
+		void		stats(void);
+
 };
 
 

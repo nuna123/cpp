@@ -6,7 +6,7 @@ HEADER =	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 CC =	c++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g
 
-all: ${NAME}
+all: ${NAME} run
 
 ${NAME}:	${SRC} ${HEADER}
 	@ ${CC} ${FLGS} ${SRC} -o ${NAME}
