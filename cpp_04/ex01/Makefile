@@ -1,7 +1,7 @@
 NAME =	Polymorphism
 
-SRC =	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
-HEADER =	Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp WrongAnimal.hpp
+SRC =	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+HEADER =	Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp WrongAnimal.hpp Brain.hpp
 
 CC =	c++
 FLGS =	-Wall -Wextra -Werror -std=c++98 -g
