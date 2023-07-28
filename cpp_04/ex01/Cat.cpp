@@ -8,6 +8,9 @@ Cat::Cat(): Animal("Cat"), brain(new Brain("cat"))
 
 Cat::Cat(const Cat &cat): Animal(cat)
 {
+	std::cout <<" this called!!" << std::endl;
+
+	delete(this->brain);
 	this->brain = new Brain(cat.get_brain());
 	std::cout << "dog copy constructor called!\n";
 }
@@ -19,10 +22,11 @@ Cat::~Cat()
 	std::cout << "dog destructor called!\n";
 }
 
-Cat &Cat::operator=(const Cat &dog)
+Cat &Cat::operator=(const Cat &cat)
 {
-	this->type = dog.get_type();
-	this->brain = new Brain(dog.get_brain());
+	this->type = cat.get_type();
+	delete(this->brain);
+	this->brain = new Brain(cat.get_brain());
 
 	return *this;
 }

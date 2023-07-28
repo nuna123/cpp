@@ -22,19 +22,40 @@
 
 int main (void)
 {
-
-	Animal *arr[10];
-
-	for (int i = 0; i < 10; i++)
 	{
-		if (i < 5)
+		Cat cat_one;
+		Cat cat_cpy;
+
+		std::cout << std::endl;
+		std::cout << std::endl;
+
+			std::cout << "Cat one: " << &cat_one << std::endl;
+			std::cout << "Cat cpy: " << &cat_cpy << std::endl;
+		cat_cpy = cat_one;
+		std::cout << std::endl<< std::endl;
+
+			std::cout << "Cat one: " << &cat_one << std::endl;
+			std::cout << "Cat cpy: " << &cat_cpy << std::endl;
+
+
+
+	}
+		std::cout << std::endl << std::endl;
+
+	int arrlen = 2;
+	Animal *arr[arrlen];
+
+	for (int i = 0; i < arrlen; i++)
+	{
+		if (i < (arrlen / 2))
 			arr[i] = new Dog;
 		else
 			arr[i] = new Cat;
 	}
-std::cout << std::endl;
+	
+	std::cout << std::endl;
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < arrlen; i++)
 	{
 		std::cout << arr[i]->get_type() << " - ";
 		std::cout << &(arr[i]) << std::endl;
@@ -42,7 +63,7 @@ std::cout << std::endl;
 
 std::cout << std::endl;
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < arrlen; i++)
 		delete(arr[i]);
 
 	return 0;
