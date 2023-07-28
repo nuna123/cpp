@@ -10,7 +10,7 @@ Cat::Cat(const Cat &cat): Animal(cat)
 {
 	std::cout <<" this called!!" << std::endl;
 
-	delete(this->brain);
+	// delete(this->brain);
 	this->brain = new Brain(cat.get_brain());
 	std::cout << "dog copy constructor called!\n";
 }

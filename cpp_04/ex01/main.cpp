@@ -41,6 +41,25 @@ int main (void)
 
 	}
 		std::cout << std::endl << std::endl;
+	{
+		Cat cat_one;
+		Cat cat_cpy(cat_one);
+
+		std::cout << std::endl;
+		std::cout << std::endl;
+
+			std::cout << "Cat one: " << &cat_one << std::endl;
+			std::cout << "Cat cpy: " << &cat_cpy << std::endl;
+		cat_cpy = cat_one;
+		std::cout << std::endl<< std::endl;
+
+			std::cout << "Cat one: " << &cat_one << std::endl;
+			std::cout << "Cat cpy: " << &cat_cpy << std::endl;
+
+
+
+	}
+		std::cout << std::endl << std::endl;
 
 	int arrlen = 2;
 	Animal *arr[arrlen];
