@@ -1,12 +1,12 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-Cat::Cat(): Animal("Cat"), brain(new Brain("MeowsAndShit"))
+Cat::Cat(): brain(new Brain("cat"))
 {
 	std::cout << "cat constructor called!\n";
 }
 
-Cat::Cat(const Cat &cat): Animal(cat)
+Cat::Cat(const Cat &cat)
 {
 	std::cout <<" this called!!" << std::endl;
 
@@ -38,3 +38,6 @@ const Brain	&Cat::get_brain(void) const
 {
 	return *(this->brain);
 }
+
+
+std::string Cat::get_type(void) const {return this->type;}

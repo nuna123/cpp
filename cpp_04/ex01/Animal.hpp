@@ -2,6 +2,7 @@
 #define ANIMAL_HPP
 
 #include <iostream>
+#include "Brain.hpp"
 
 class Animal
 {
@@ -17,6 +18,8 @@ class Animal
 
 		std::string	get_type() const;
 		void		make_sound() const;
+
+		virtual const Brain	&get_brain(void) const = 0;
 };
 
 #endif

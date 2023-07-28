@@ -1,12 +1,12 @@
 #include "Dog.hpp"
 #include "Brain.hpp"
 
-Dog::Dog(): Animal("Dog"), brain(new Brain("woofyIdea"))
+Dog::Dog(): brain(new Brain("dog"))
 {
 	std::cout << "dog constructor called!\n";
 }
 
-Dog::Dog(const Dog &dog_cpy): Animal(dog_cpy)
+Dog::Dog(const Dog &dog_cpy)
 {
 	// delete(this->brain);
 	this->brain = new Brain(dog_cpy.get_brain());
@@ -36,3 +36,6 @@ const Brain	&Dog::get_brain(void) const
 {
 	return *(this->brain);
 }
+
+
+std::string Dog::get_type(void) const {return this->type;}

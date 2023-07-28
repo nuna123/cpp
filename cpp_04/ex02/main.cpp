@@ -77,7 +77,6 @@ int main (void)
 	for (int i = 0; i < arrlen; i++)
 	{
 		std::cout << arr[i]->get_type() << " - ";
-		std::cout << arr[i]->get_brain().get_idea(3) << " - ";
 		std::cout << &(arr[i]) << std::endl;
 	}
 
