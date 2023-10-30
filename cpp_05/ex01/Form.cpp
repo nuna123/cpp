@@ -73,7 +73,7 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Form::beSigned(Bureaucrat bur)
+void Form::beSigned(Bureaucrat & bur)
 {
 	if (bur.getGrade() <= this->get_grade_tosign())
 	{

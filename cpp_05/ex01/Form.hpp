@@ -33,7 +33,7 @@ class Form
 		int get_grade_toexec() const;
 
 
-		void beSigned(Bureaucrat bur);
+		void beSigned(Bureaucrat & bur);
 
 		class GradeTooHighException: public std::exception
 		{
