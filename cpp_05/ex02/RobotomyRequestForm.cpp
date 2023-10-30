@@ -35,7 +35,7 @@ std::string RobotomyRequestForm::get_target() const
 }
 
 //methods
-void RobotomyRequestForm::my_action()
+void RobotomyRequestForm::my_action() const
 {
 	srand((unsigned) time(NULL));
 

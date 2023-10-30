@@ -25,7 +25,7 @@ class PresidentialPardonForm: public AForm
 		PresidentialPardonForm & operator=(const PresidentialPardonForm &assign);
 		
 		//inherited metod
-		virtual	void my_action();
+		virtual	void my_action() const;
 		
 		//GETTER
 		std::string get_target() const;

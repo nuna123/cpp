@@ -35,7 +35,7 @@ std::string ShrubberyCreationForm::get_target() const
 	return this->_target;
 }
 //methods
-void ShrubberyCreationForm::my_action()
+void ShrubberyCreationForm::my_action() const
 {
 	std::ofstream file(this->get_target().append("_shrubbery").c_str());
 	file \

@@ -33,6 +33,7 @@ class Bureaucrat
 		void gradeUp();
 		void gradeDown();
 		void signForm(AForm &AForm);
+		void executeForm(AForm const & form);
 
 
 //--------------------EXCEPTIONS----------------------------

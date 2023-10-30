@@ -90,17 +90,31 @@ void Bureaucrat::gradeDown()
 
 }
 
-void Bureaucrat::signForm(AForm &AForm)
+void Bureaucrat::signForm(AForm &form)
 {
 	try 
 	{
-		AForm.beSigned(*this);
-		std::cout << this->getName() << " signed " << AForm.get_name() << std::endl;
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.get_name() << std::endl;
 	}
 	catch (std::exception &e)
 	{
 		std::cout << this->getName()
-		<< " could not sign " << AForm.get_name()
+		<< " could not sign " << form.get_name()
+		<< " because " << e.what() << std::endl;
+	}
+}
+void Bureaucrat::executeForm(AForm const & form)
+{
+	try 
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " signed " << form.get_name() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout <<"ERROR! " << this->getName()
+		<< " could not execute " << form.get_name()
 		<< " because " << e.what() << std::endl;
 	}
 }

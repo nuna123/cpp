@@ -69,21 +69,27 @@ std::ostream &			operator<<( std::ostream & o, AForm const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void	AForm::execute(Bureaucrat const & executor)
+void	AForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() <= this->get_grade_toexec())
+	if (executor.getGrade() > this->get_grade_toexec())
 	{
-		this->my_action();
+		throw AForm::GradeTooLowException();
+	}
+	else if (this->get_signed() == false)
+	{
+		throw AForm::FormUnsigned();
 	}
 	else
-		throw AForm::GradeTooLowException();
+		this->my_action();
 }
 
-void AForm::beSigned(Bureaucrat bur)
+void AForm::beSigned(Bureaucrat &bur)
 {
 	if (bur.getGrade() <= this->get_grade_tosign())
 	{
-		this->_signed = 1;
+		this->_signed = true;
+		std::cout << "Form \"" << this->get_name() <<
+		"\" has been signed by " << bur.getName() << std::endl;
 	}
 	else
 		throw AForm::GradeTooLowException();
@@ -118,6 +124,8 @@ int AForm::get_grade_toexec() const
 	{return (RED "Grade Too High!" NRM);};
 	const char * AForm::GradeTooLowException::what () const throw ()
 	{return (RED "Grade Too Low!" NRM);};
+	const char * AForm::FormUnsigned::what () const throw ()
+	{return (RED "Form is unsigned!" NRM);};
 
 
 

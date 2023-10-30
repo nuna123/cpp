@@ -19,16 +19,17 @@ int main(void)
 
 	try
 	{
+		ppf.beSigned(high_beau);
 
 		ppf.execute(high_beau);
-		scf.execute(high_beau);
+		high_beau.executeForm(scf);
 		rrf.execute(low_beau);
 
 
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr <<"Error in main: " << e.what() << '\n';
 	}
 		std::cout << std::endl <<std::endl;
 
