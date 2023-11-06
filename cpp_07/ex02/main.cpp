@@ -11,20 +11,35 @@ https://www.geeksforgeeks.org/templates-cpp/
 int main( void )
 {
 
-	Array<char> *arr;
+
 
 	try
 	{
-		arr = new Array<char>(2);
-		arr->print();
-		arr[0] = '1';
-		arr[1] = '2';
-		int * a = new int();
-		std::cout << *a << std::endl;
 
-		delete arr;
-		delete a;
+		Array<char> arr(5);
 
+		char *c = new char;
+		std::cout << *c << std::endl;
+		delete c;
+
+
+		arr.size();
+
+		arr[0] = 'a';
+		arr[1] = 'b';
+
+		Array<char> arr2(arr);
+		arr[2] = 'c';
+		arr[3] = 'd';
+
+		arr.print();
+		arr2[0] = 'A';
+		arr2[1] = 'B';
+
+		arr = arr2;
+
+		arr.print();
+		arr2.print();
 	}
 	catch(const std::exception& e)
 	{

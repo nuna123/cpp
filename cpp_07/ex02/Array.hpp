@@ -22,8 +22,11 @@ class Array
 		Array &operator=(const Array &src);
 		~Array();
 
-		void print();
+		void	print();
+		int		size() const;
 		T &operator [](unsigned int i);
+
+
 
 		class OutOfBoundException : public std::exception
 		{
@@ -46,18 +49,19 @@ Array<T>::Array(unsigned int size)
 {
 	this->_items = new T[size];
 	this->_size = size;
-};;
+};
 template <class T>
 Array<T>::Array (const Array &src)
 {
-	this->_items = new T[src->_size];
-	this->_size = src->_size;
+	this->_items = new T[src._size];
+	this->_size = src._size;
 	for(unsigned int i = 0; i < this->_size; i++)
-		this->_items[i] = src->_items[i];
+		this->_items[i] = src._items[i];
 };
 template <class T>
 Array<T> &Array<T>::operator=(const Array<T> &src)
 {
+	delete[] this->_items;
 	this->_items = new T[src._size];
 	this->_size = src._size;
 	for(unsigned int i = 0; i < this->_size; i++)
@@ -82,6 +86,9 @@ void Array<T>::print(void)
 	}
 	std::cout << std::endl;
 };
+template <class T>
+int Array<T>::size(void) const {return this->_size;}
+
 template <class T>
 T &Array<T>::operator[](unsigned int i)
 {
