@@ -1,7 +1,7 @@
-NAME	= cpp06_ex00
+NAME	= convert
 
-SRC		= main.cpp Bureaucrat.cpp
-C_FLGS	= -Wall -Wextra -Werror -std=c++98
+SRC		= main.cpp ScalarConverter.cpp
+C_FLGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 all: ${NAME}
 
@@ -9,7 +9,7 @@ ${NAME}: ${SRC}
 	c++ ${C_FLGS} ${SRC} -o ${NAME}
 
 clean:
-	rm ${NAME}
+	rm -f ${NAME}
 
 fclean: clean
 re: clean all
