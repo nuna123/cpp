@@ -1,6 +1,20 @@
 #include "./ScalarConverter.hpp"
 // #include <Array>
 
+
+
+/*
+notes:
+	convertion to char uses modulo of 128- the ascii table.
+	trying to display int to display int '42345' will show as 'i'.
+
+	Float is less accurate than double, precision may be lost in conversion
+
+	Static class is defined by its methods being accessible
+		without an instance of the class.
+*/
+
+
 int main(int argc, char **argv)
 {
 	if (argc != 2)
