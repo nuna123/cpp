@@ -4,7 +4,7 @@
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	:AForm("RobotomyRequestForm", 72, 45),  _target(target)
 {
-	std::cout << "\e[0;33mDefault Constructor called of RobotomyRequestForm\e[0m" << std::endl;
+	std::cout << "\e[0;33mConstructor called of RobotomyRequestForm\e[0m" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy): AForm(copy), _target(copy.get_target())
@@ -23,6 +23,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 // Operators
 RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &assign)
 {
+	AForm::operator=(assign);
 	this->_target = assign.get_target();
 	return *this;
 }

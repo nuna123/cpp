@@ -13,17 +13,13 @@ static void check_grade(int grade)
 */
 
 
-Form::Form(): _name("form"), _signed(0), _grade_tosign(1), _grade_toexec(1)
+Form::Form(): _name("default_form"), _signed(false), _grade_tosign(1), _grade_toexec(1)
 {
 	check_grade(_grade_tosign);
 	check_grade(_grade_toexec);
-/* 	if (_grade_toexec > 150 || _grade_tosign > 150)
-		throw Form::GradeTooLowException();
-	if (_grade_toexec <1 || _grade_tosign <1)
-		throw Form::GradeTooHighException(); */
 }
 Form::Form(std::string name, int grade_tosign, int grade_toexec)
-	: _name(name), _signed(0), _grade_tosign(grade_tosign), _grade_toexec(grade_toexec)
+	: _name(name), _signed(false), _grade_tosign(grade_tosign), _grade_toexec(grade_toexec)
 {
 	check_grade(_grade_tosign);
 	check_grade(_grade_toexec);
@@ -51,10 +47,7 @@ Form::~Form()
 
 Form &				Form::operator=( Form const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	//values are constant, the '=' operator cant be used
 	(void) rhs;
 	return *this;
 }
@@ -62,7 +55,7 @@ Form &				Form::operator=( Form const & rhs )
 std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
 	o	<< "Name: "				<< i.get_name() << "\n"
-		<< "signed: "			<< i.get_signed() << "\n"
+		<< "signed: "			<< (i.get_signed() == true ? "TRUE" : "FALSE") << "\n"
 		<< "grade to sign: "	<< i.get_grade_tosign() << "\n"
 		<< "grade to execute: "	<< i.get_grade_toexec()<< "\n";
 	return o;
@@ -77,7 +70,7 @@ void Form::beSigned(Bureaucrat & bur)
 {
 	if (bur.getGrade() <= this->get_grade_tosign())
 	{
-		this->_signed = 1;
+		this->_signed = true;
 	}
 	else
 		throw Form::GradeTooLowException();

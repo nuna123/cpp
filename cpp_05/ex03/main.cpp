@@ -8,22 +8,33 @@
 
 int main(void)
 {
-	Intern joe;
-
+	Intern	joe;
+	AForm	*form;
 
 		std::cout << std::endl <<std::endl;
 
 	try
 	{
-		AForm *form = joe.makeForm("presitial pardon", "bb");
-		std::cout << *form <<std::endl;
+		// options: robotomy request, presidential pardon, shrubbery creation
+		// form = joe.makeForm("some unexisting pardon", "bb");
+
+		form = joe.makeForm("RobotomyRequest", "bb");
+
+		std::cout <<"---------------------------" << std::endl;
+		std::cout << *form;
+		std::cout <<"---------------------------" << std::endl;
+
+		delete form;
 
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr <<"Error in main: " << e.what() << '\n';
+		std::cout <<"---------------------------" << std::endl;
+		std::cout <<"Error in main: " << e.what() << std::endl;
 	}
-		std::cout << std::endl <<std::endl;
- 
+	std::cout <<"---------------------------" << std::endl;
+
+// std::cout << std::endl <<std::endl;
+
 	return 0;
 }

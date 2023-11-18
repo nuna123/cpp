@@ -14,12 +14,11 @@ class Form
 {
 	private:
 		const std::string	_name;
-		bool				_signed; // 0 by default
+		bool				_signed; // false by default
 		const int			_grade_tosign;
 		const int			_grade_toexec;
 
 	public:
-
 		Form();
 		Form(std::string name, int grade_tosign, int grade_toexec);
 		Form( Form const & src );

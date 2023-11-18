@@ -58,13 +58,12 @@ AForm &				AForm::operator=( AForm const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, AForm const & i )
 {
-	o	<< "Name: "				<< i.get_name() << "\n"
-		<< "signed: "			<< i.get_signed() << "\n"
-		<< "grade to sign: "	<< i.get_grade_tosign() << "\n"
-		<< "grade to execute: "	<< i.get_grade_toexec()<< "\n";
+	o	<< "Name:\t\t\t"			<< i.get_name() << "\n"
+		<< "signed:\t\t\t"			<< i.get_signed() << "\n"
+		<< "grade to sign:\t\t"		<< i.get_grade_tosign() << "\n"
+		<< "grade to execute:\t"	<< i.get_grade_toexec()<< "\n";
 	return o;
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------

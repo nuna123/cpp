@@ -9,23 +9,25 @@
 int main(void)
 {
 	Bureaucrat joe("Joe", 1);
-	std::cout << joe<< std::endl<< std::endl;
-
+	std::cout << joe<< std::endl;
+std::cout << "-------------------" << std::endl<< std::endl;
 	try
 	{
 		joe.gradeUp();
-		std::cout << joe<< std::endl<< std::endl;
+		std::cout << joe << std::endl<< std::endl;
 
 	} catch (std::exception & e)
 	{
 		std::cout << "exception: " << e.what() << std::endl;
+		std::cout << "-------------------" << std::endl<< std::endl;
 	}
 
 
 	try
 	{
 		joe.gradeDown();
-		std::cout << joe<< std::endl<< std::endl;
+		std::cout << joe << std::endl;
+		std::cout << "-------------------" << std::endl<< std::endl;
 
 	} catch (std::exception & e)
 	{

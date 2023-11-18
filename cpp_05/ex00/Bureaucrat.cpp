@@ -50,7 +50,7 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & src )
 
 std::ostream &			operator<<( std::ostream & os,const Bureaucrat & bur)
 {
-	os  << bur.getName() << ", bureaucrat grade " << bur.getGrade();
+	os  << bur.getName() << ", bureaucrat grade " << bur.getGrade() << ".";
 	return os;
 }
 
@@ -75,7 +75,7 @@ void Bureaucrat::gradeUp()
 }
 void Bureaucrat::gradeDown()
 {
-	
+
 	if(this->getGrade() + 1 > 150)
 	{
 		_grade = 150;
@@ -86,7 +86,7 @@ void Bureaucrat::gradeDown()
 		_grade += 1;
 		std::cout<< "bureaucrat: grade down!" <<std::endl;
 	}
-			
+
 
 }
 /*
@@ -94,13 +94,13 @@ void Bureaucrat::gradeDown()
 */
 
 
-	
+
 	const char * Bureaucrat::GradeTooHighException::what () const throw ()
 	{return (RED "Grade Too High!" NRM);};
 	const char * Bureaucrat::GradeTooLowException::what () const throw ()
 	{return (RED "Grade Too Low!" NRM);};
 
- 
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

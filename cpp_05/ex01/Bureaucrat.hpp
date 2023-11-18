@@ -25,14 +25,14 @@ class Bureaucrat
 		Bureaucrat( Bureaucrat const & src );
 		~Bureaucrat();
 
-		Bureaucrat &		operator=( Bureaucrat const & rhs );
+		Bureaucrat &	operator=( Bureaucrat const & rhs );
 
-		int getGrade() const;
-		std::string getName() const;
+		int				getGrade() const;
+		std::string		getName() const;
 
-		void gradeUp();
-		void gradeDown();
-		void signForm(Form &form);
+		void			gradeUp();
+		void			gradeDown();
+		void			signForm(Form &form);
 
 
 //--------------------EXCEPTIONS----------------------------

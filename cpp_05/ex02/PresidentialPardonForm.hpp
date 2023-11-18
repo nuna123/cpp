@@ -17,16 +17,16 @@ class PresidentialPardonForm: public AForm
 		// Constructors
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(const PresidentialPardonForm &copy);
-		
+
 		// Destructor
 		~PresidentialPardonForm();
-		
+
 		// Operators
 		PresidentialPardonForm & operator=(const PresidentialPardonForm &assign);
-		
+
 		//inherited metod
 		virtual	void my_action() const;
-		
+
 		//GETTER
 		std::string get_target() const;
 

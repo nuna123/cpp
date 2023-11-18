@@ -4,7 +4,7 @@
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
-	std::cout << "\e[0;33mDefault Constructor called of PresidentialPardonForm\e[0m" << std::endl;
+	std::cout << "\e[0;33mConstructor called of PresidentialPardonForm\e[0m" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy): AForm(copy), _target(copy.get_target())
@@ -23,7 +23,9 @@ PresidentialPardonForm::~PresidentialPardonForm()
 // Operators
 PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPardonForm &assign)
 {
-	(void) assign;
+	// (void) assign;
+	AForm::operator=(assign);
+	this->_target = assign.get_target();
 	return *this;
 }
 

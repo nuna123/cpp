@@ -9,7 +9,7 @@ ${NAME}: ${SRC}
 	c++ ${C_FLGS} ${SRC} -o ${NAME}
 
 clean:
-	rm ${NAME}
+	rm -f ${NAME}
 
 fclean: clean
 re: clean all

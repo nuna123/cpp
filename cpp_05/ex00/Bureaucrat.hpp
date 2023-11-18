@@ -20,16 +20,16 @@ class Bureaucrat
 
 		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
-		Bureaucrat( Bureaucrat const & src );
+		Bureaucrat(Bureaucrat const & src);
 		~Bureaucrat();
 
-		Bureaucrat &		operator=( Bureaucrat const & rhs );
+		Bureaucrat &	operator=( Bureaucrat const & rhs );
 
-		int getGrade() const;
-		std::string getName() const;
+		int				getGrade() const;
+		std::string		getName() const;
 
-		void gradeUp();
-		void gradeDown();
+		void			gradeUp();
+		void			gradeDown();
 
 
 //--------------------EXCEPTIONS----------------------------

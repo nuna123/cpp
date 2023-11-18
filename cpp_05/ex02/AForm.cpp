@@ -12,12 +12,12 @@ static void check_grade(int grade)
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-
+/*
 AForm::AForm(): _name("default"), _signed(false), _grade_tosign(1), _grade_toexec(1)
 {
 	check_grade(_grade_tosign);
 	check_grade(_grade_toexec);
-}
+} */
 AForm::AForm(std::string name, int grade_tosign, int grade_toexec)
 	: _name(name), _signed(0), _grade_tosign(grade_tosign), _grade_toexec(grade_toexec)
 {
@@ -48,20 +48,16 @@ AForm::~AForm()
 
 AForm &				AForm::operator=( AForm const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	(void) rhs;
+	this->_signed = rhs.get_signed();
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, AForm const & i )
 {
-	o	<< "Name: "				<< i.get_name() << "\n"
-		<< "signed: "			<< i.get_signed() << "\n"
-		<< "grade to sign: "	<< i.get_grade_tosign() << "\n"
-		<< "grade to execute: "	<< i.get_grade_toexec()<< "\n";
+	o	<< "Name:\t\t\t"			<< i.get_name() << "\n"
+		<< "signed:\t\t\t"			<< i.get_signed() << "\n"
+		<< "grade to sign:\t\t"		<< i.get_grade_tosign() << "\n"
+		<< "grade to execute:\t"	<< i.get_grade_toexec()<< "\n";
 	return o;
 }
 

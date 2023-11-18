@@ -20,12 +20,12 @@ class AForm
 
 	public:
 
-		AForm();
+		// AForm();
 		AForm(std::string name, int grade_tosign, int grade_toexec);
 		AForm( AForm const & src );
 		virtual ~AForm() = 0;
 
-		AForm &		operator=( AForm const & rhs );
+		virtual AForm &		operator=( AForm const & rhs );
 
 		std::string get_name() const;
 		bool get_signed() const;
