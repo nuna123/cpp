@@ -51,6 +51,9 @@
 		"iomanip": "cpp",
 		"sstream": "cpp",
 		"span": "cpp",
-		"cstring": "cpp"
-	}
+		"cstring": "cpp",
+		"set": "cpp"
+	},
+	"workbench.colorTheme": "Default High Contrast",
+	"workbench.iconTheme": "vs-seti"
 }
