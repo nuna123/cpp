@@ -19,6 +19,21 @@ int main(int argc, char *argv[])
 			<< std::endl;
 	}
 	else
-		evaluate_expression(argv[1]);
+	{
+		try
+		{
+			// evaluate_expression(argv[1]);
+			std::cout
+			<< argv[1]
+			<< " => "
+			<< evaluate_expression(argv[1])
+			<< std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << "ERROR! something went wrong:(" << std::endl;
+		}
+	}
+
 	return 0;
 }

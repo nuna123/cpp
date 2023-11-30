@@ -1,21 +1,16 @@
 #include "RPN.hpp"
 
-class NoBueno: public std::exception
-{
-	const virtual char *what() const throw()
-	{return  "Problemo :(";}
-};
+#define DEBUG false
 
-void	operate(char expr, std::stack<int> &my_stack)
+static void	operate(char expr, std::stack<int> &my_stack)
 {
 	int first, second;
-	std::cout << "SIZE " << my_stack.size() << std::endl;
 
 	if (my_stack.size() < 2)
 	{
-		std::cout << "1" << std::endl;
+		if(DEBUG)
+			std::cerr << "Error: Less than two values in stack by operation: " << expr << std::endl;
 		throw NoBueno();
-
 	}
 
 	first = my_stack.top();
@@ -23,45 +18,48 @@ void	operate(char expr, std::stack<int> &my_stack)
 	second = my_stack.top();
 	my_stack.pop();
 
-	std::cout << "First: " << first
-		<< "second: " << second << std::endl;
 	switch (expr)
 	{
 		case '+':
 			my_stack.push(second + first);
-			std::cout << ">>>+" << std::endl;
 			break;
 		case '-':
 			my_stack.push(second - first);
-			std::cout << ">>>-" << std::endl;
 			break;
 		case '*':
 			my_stack.push(second * first);
-			std::cout << ">>>*" << std::endl;
 			break;
 		case '/':
 			my_stack.push(second / first);
-			std::cout << ">>>/" << std::endl;
 			break;
 		default:
-			{
-		std::cout << "2" << std::endl;
-		throw NoBueno();
+		{
+			if(DEBUG)
+				std::cerr << "Error: operator unrecognized: " << expr << std::endl;
+			throw NoBueno();
+		}
+	}
 
+	if (DEBUG)
+	{
+		std::cout << second
+		<< expr
+		<< first
+		<< " = "
+		<< my_stack.top()
+			<< std::endl;
 	}
-	}
+
 }
 
-
-
-bool valid_val(std::string s)
+static bool valid_val(std::string s)
 {
 	if (s.length() == 1 && !std::isdigit(s.at(0)))
 		return false;
 	for (std::string::iterator i = s.begin(); i != s.end(); i++)
 	{
 		if (i == s.begin() && s.length() > 1 &&
-			(!std::isdigit(*i) || *i != '+' || *i != '-'))
+			(!std::isdigit(*i) && *i != '+' && *i != '-'))
 			return false;
 		if (i != s.begin() && !std::isdigit(*i))
 			return false;
@@ -69,7 +67,7 @@ bool valid_val(std::string s)
 	return true;
 }
 
-bool valid_expr(std::string s)
+static bool valid_expr(std::string s)
 {
 	if (s.length() == 1 &&
 		(
@@ -81,7 +79,6 @@ bool valid_expr(std::string s)
 		return true;
 	return false;
 }
-
 
 int evaluate_expression ( char *e)
 {
@@ -96,7 +93,6 @@ int evaluate_expression ( char *e)
 	while (!expr.empty())
 	{
 
-		std::cout << my_stack.size() << std::endl;
 		if(expr.find(" ") == std::string::npos)
 		{
 			val = expr;
@@ -106,21 +102,28 @@ int evaluate_expression ( char *e)
 			val = expr.substr(0, expr.find(" "));
 			expr = expr.substr(expr.find(" ") + 1);
 		}
-			std::cout << "VAL: [" << val << "]"<< std::endl;
 
 		if (valid_val(val))
+		{
+			if (DEBUG)
+				std::cout << "pushing " << val<< std::endl;
 			my_stack.push(std::atoi(val.c_str()));
+		}
 		else if (valid_expr(val))
 			operate(val.at(0), my_stack);
 		else
 		{
-			std::cout << "3" << std::endl;
-			std::cout <<"{" << val <<"}"<< std::endl;
+			if(DEBUG)
+				std::cerr << "Error: invalid value " << val << std::endl;
 			throw NoBueno();
 		}
 	}
 
-	std::cout << my_stack.size() << std::endl;
-	std::cout << my_stack.top() << std::endl;
-	return 0;
+	if (my_stack.size() != 1)
+	{
+		if(DEBUG)
+			std::cerr << "Error: incorrect num of values left in stack by the end of expression " << std::endl;
+		throw NoBueno();
+	}
+	return my_stack.top();
 }
