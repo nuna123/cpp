@@ -58,7 +58,7 @@ static void check_date_validity(std::string &date)
 		// std::cout << newstr.find("-") ;
 		throw BitcoinExchange::InvalidDateException();
 	}
-	
+
 	day = std::atoi(newstr.c_str());
 		//find out ho many days are in that month
 	int daysInMonth;
@@ -86,7 +86,7 @@ void	BitcoinExchange::addValue(std::string date, float bc)
 	try
 	{
 		check_date_validity(date);
-	
+
 		this->_values.insert(
 		std::pair<std::string, float>(date, bc));
 	}catch (std::exception &e)
@@ -99,7 +99,7 @@ void	BitcoinExchange::getValue(std::string date, float er) const
 {
 	std::map<std::string, float>::const_iterator val;
 	try
-	{	
+	{
 		//check if date is valid
 		check_date_validity(date);
 		// std::cout << "date ok!" << std::endl;
@@ -109,9 +109,9 @@ void	BitcoinExchange::getValue(std::string date, float er) const
 			val = (--_values.lower_bound(date));
 		else
 			val = (_values.find(date));
-	
-		if ( er * val->second > 2147483648
-			|| er * val->second < -2147483647)
+
+		if ( (long int) (er * val->second) > (long int) 2147483647
+			|| (long int) (er * val->second) < -2147483648)
 		{
 			std::cout << "\tError: output too large. ("
 			<< er << " * " << val->second << ")" << std::endl;
