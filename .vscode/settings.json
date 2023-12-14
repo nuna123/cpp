@@ -51,7 +51,10 @@
 		"streambuf": "cpp",
 		"typeinfo": "cpp",
 		"ranges": "cpp",
-		"span": "cpp"
+		"span": "cpp",
+		"optional": "cpp",
+		"iomanip": "cpp",
+		"sstream": "cpp"
 	},
 	"workbench.colorTheme": "Default High Contrast",
 	"workbench.iconTheme": "vs-seti"

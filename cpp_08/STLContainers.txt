@@ -1,6 +1,6 @@
 Sequence Containers
 
-Here are the sequence containers, meaning the data is reliably ordered (that is, there is
+sequence containers, meaning the data is reliably ordered (that is, there is
 	a front and a back to them. I do NOT mean that they automatically sort themselves!).
 
 	A vector is a bit like a flexibly-sized array. Vectors are random-access, meaning you
@@ -8,12 +8,12 @@ Here are the sequence containers, meaning the data is reliably ordered (that is,
 		You can add or remove from the back of the vector in amortized constant time as well.
 		Anywhere else, though, and you're probably looking at having to recopy potentially all of the elements.
 
-	A deque, or double-ended queue, is like a vector but you can add to the front or the 
-		back in amortized constant time. You can still access elements in constant time, 
+	A deque, or double-ended queue, is like a vector but you can add to the front or the
+		back in amortized constant time. You can still access elements in constant time,
 		but deque elements are not guaranteed to be contiguous in memory like vectors or arrays.
 
 	A list is a linked list, meaning data which are linked together by pointers. You have
-		constant-time access to the beginning and the end, but in order to get anywhere 
+		constant-time access to the beginning and the end, but in order to get anywhere
 		in the middle you need to iterate through the list. You can add elements anywhere
 		in the list in constant time, though, if you already have a pointer to one of the nearby nodes.
 
