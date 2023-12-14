@@ -49,7 +49,9 @@
 		"ostream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"typeinfo": "cpp"
+		"typeinfo": "cpp",
+		"ranges": "cpp",
+		"span": "cpp"
 	},
 	"workbench.colorTheme": "Default High Contrast",
 	"workbench.iconTheme": "vs-seti"
