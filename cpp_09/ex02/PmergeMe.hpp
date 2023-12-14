@@ -3,17 +3,24 @@
 
 #include <iostream>
 #include <deque>
+#include <list>
 #include <algorithm>
+/*
+
+#include <time>
+#include <clock>
+
+*/
 
 class PmergeMe
 {
 	private:
+		PmergeMe();
 		PmergeMe(const PmergeMe &src);
 		const PmergeMe &operator=(const PmergeMe &src);
-	public:
-		PmergeMe();
-		PmergeMe(int argc, char **argv);
 		~PmergeMe();
+	public:
+		static void sort(int argc, char **argv);
 
 };
 
