@@ -1,29 +1,46 @@
 #include "./Span.hpp"
-#include <iostream>
-#include <set>
-#include <cstdlib>
-#include <ctime>
-#include <iterator>
+
 
 int main(void)
 {
+
+	///values for set
+		//if the same random number is generated twice,
+		//	it will only be added once to the set since it doesnt allow duplicates.
+	int min_value = -100000;
+	int max_value = 100000;
+
+	unsigned int size = 10000;
+	////////////////////
+
 	std::srand(time(NULL));
 	std::set<int> int_set;
 	int num;
 
 
-	for (int i = 0; i < 10; i++)
+	//creating set of SIZE random integers within the set bounds
+	for (int i = 0;
+		int_set.size() < size
+			&& int_set.size() < (unsigned int) max_value - min_value;
+		i++)
 	{
-		num = -1000 + ( std::rand() % ( 1000 - -1000 + 1 ) );
+		num = min_value + ( std::rand() % ( max_value - min_value + 1 ));
 		int_set.insert(num);
 	}
-	Span *s = new Span(190);
-try{
-	s->addNumber(int_set.begin(), int_set.end());
-	s->addNumber(3023);
+	std::cout << "\nint set size: " << int_set.size() << std::endl;
 
 
-	std::cout << "\n" << *s << std::endl;
+
+	Span *s = new Span(100000);
+	try
+	{
+		s->addNumber(int_set.begin(), int_set.end());
+		s->addNumber(3023);
+
+
+	std::cout << "\n" << *s << "\n" << std::endl;
+
+	std::cout << "size: " << s->getSize() << "\n" << std::endl;
 	std::cout << "LONGEST SPAN: " << s->longestSpan() << std::endl;
 	std::cout << "SHORTEST SPAN: " <<s->shortestSpan() << std::endl;
 }

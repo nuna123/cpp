@@ -15,6 +15,7 @@ Span::Span(const Span &src)
 	: _ints(src.getInts()), _max_size(src.getMaxSize())
 {
 }
+int		Span::getSize() const {return _ints.size();}
 
 const unsigned int &Span::getMaxSize() const { return this->_max_size; }
 
@@ -28,20 +29,19 @@ void Span::addNumber(int num)
 
 void Span::addNumber
 	(std::set<int>::iterator first, std::set<int>::iterator last)
-{	
-	this->_ints.insert(first, last);
-	if (this->_ints.size() > this->getMaxSize())
-		throw SpanFullException();
-	/* 
-	std::cout << "Span: added:";
+{
+
 	while (first != last)
 	{
-		std::cout << *first << " ";
+		_ints.insert(*first);
 		first++;
 	}
+
+	if (this->_ints.size() > this->getMaxSize())
+		throw SpanFullException();
+
 	std::cout << std::endl;
 
- */
 }
 
 const std::set<int> &Span::getInts() const
@@ -79,6 +79,7 @@ std::ostream &operator << (std::ostream &o, const Span &span)
 {
 	std::set<int> int_set = span.getInts();
 
+	o << "{" << int_set.size() << "}";
 	o << "[";
 	for(std::set<int>::iterator i = int_set.begin();
 		i != int_set.end();

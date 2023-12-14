@@ -13,8 +13,8 @@
 class Span
 {
 	private:
-		std::set<int>	_ints;
-		const unsigned int		_max_size;
+		std::set<int>		_ints;
+		const unsigned int	_max_size;
 		Span();
 
 	public:
@@ -31,6 +31,7 @@ class Span
 			(std::set<int>::iterator first, std::set<int>::iterator last);
 		int		longestSpan() const;
 		int		shortestSpan() const;
+		int		getSize() const;
 
 		class SpanFullException: public std::exception
 		{
