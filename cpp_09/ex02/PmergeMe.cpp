@@ -1,5 +1,8 @@
 #include "PmergeMe.hpp"
 
+
+#define SHORTEN true
+
 void print_l (std::list<int> *d)
 {
 	std::cout <<"[";
@@ -12,22 +15,23 @@ void print_l (std::list<int> *d)
 		d_i++;
 	}
 	std::cout <<"]" << std::endl;
-
 }
 
 void print_d (std::deque<int> *d)
 {
 	std::cout <<"[";
-	std::deque<int>::iterator d_i = d->begin();
-	while (d_i != d->end())
+	for (unsigned int i = 0; i < d->size() ; i++)
 	{
-		if (d_i != d->begin())
+		if (SHORTEN && i >= 5)
+		{
+			std::cout <<"...]"<< std::endl;
+			return;
+		}
+		if (i != 0)
 			std::cout <<", ";
-		std::cout << *d_i;
-		d_i++;
+		std::cout << (*d)[i];
 	}
 	std::cout <<"]" << std::endl;
-
 }
 
 std::list<int> *merge_list(std::list<int> *p1, std::list<int> *p2)
@@ -180,9 +184,10 @@ std::deque<int> *sort_deque(std::deque<int> *deque)
 	return deque;
 }
 
+
+
 void PmergeMe::sort(int argc, char **argv)
 {
-	std::cout << "start time: " << clock() << std::endl;
 	std::deque<int> *deque = new std::deque<int>;
 	std::list<int> *list = new std::list<int>;
 
@@ -190,19 +195,34 @@ void PmergeMe::sort(int argc, char **argv)
 
 	for (int i = 1; i < argc ; i++)
 	{
+		for (char *c = argv[i]; *c; c++)
+		{
+			if (std::atoi(argv[i]) < 0 || !std::isdigit(*c))
+			{
+				std::cout << "Error!\n\tOnly positive integers allowed." << argv[i]<< std::endl;
+				delete deque;
+				delete list;
+				return;
+			}
+		}
 		deque->push_back(std::atoi(argv[i]));
 		list->push_back(std::atoi(argv[i]));
 	}
-	std::cout << "after processing time: " << clock() << std::endl;
 
-std::cout << "DEQUE: ";
+std::cout << "Unsorted list: \n\t";
+	print_d(deque);
+
+
+std::cout << "\nDEQUE: ";
 	time_start = clock();
 	sort_deque(deque);
-	std::cout << "sorting time: " << clock() - time_start << std::endl;
+	std::cout << "sorting time: " << ((float)(clock() - time_start)/CLOCKS_PER_SEC )* 1000000<< "us"<< std::endl;
 
 std::cout << "LIST: ";
 	time_start = clock();
 	sort_list(list);
-	std::cout << "sorting time: " << clock() - time_start << std::endl;
+	std::cout << "sorting time: " << ((float)(clock() - time_start)/CLOCKS_PER_SEC )* 1000000<< "us"<< std::endl;
 
+std::cout << "\nsorted list: \n\t";
+	print_d(deque);
 }
