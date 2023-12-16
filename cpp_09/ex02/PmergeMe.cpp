@@ -1,6 +1,5 @@
 #include "PmergeMe.hpp"
 
-
 #define SHORTEN true
 
 void print_l (std::list<int> *d)
@@ -40,8 +39,6 @@ std::list<int> *merge_list(std::list<int> *p1, std::list<int> *p2)
 	std::list<int>::iterator p1_i = p1->begin();
 	std::list<int>::iterator p2_i = p2->begin();
 
-
-
 	while (p1_i != p1->end() || p2_i != p2->end())
 	{
 		if (p1_i == p1->end())
@@ -73,7 +70,6 @@ std::list<int> *merge_list(std::list<int> *p1, std::list<int> *p2)
 
 std::list<int> *sort_list(std::list<int> *list)
 {
-	// print_d(list);
 	if (list->size() < 3)
 	{
 		if (list->size() < 2)
@@ -82,8 +78,6 @@ std::list<int> *sort_list(std::list<int> *list)
 			std::swap(*list->begin(), *(++list->begin()));
 		return list;
 	}
-
-
 	std::list<int> *p1 = new std::list<int>;
 	std::list<int> *p2 = new std::list<int>;
 
@@ -97,11 +91,8 @@ std::list<int> *sort_list(std::list<int> *list)
 		it++;
 	}
 	delete list;
-
-
 	p1 = sort_list (p1);
 	p2 = sort_list (p2);
-
 	list = merge_list(p1, p2);
 	delete p1;
 	delete p2;
@@ -114,8 +105,6 @@ std::deque<int> *merge_deque(std::deque<int> *p1, std::deque<int> *p2)
 	std::deque<int> *new_d = new std::deque<int>;
 	std::deque<int>::iterator p1_i = p1->begin();
 	std::deque<int>::iterator p2_i = p2->begin();
-
-
 
 	while (p1_i != p1->end() || p2_i != p2->end())
 	{
@@ -158,7 +147,6 @@ std::deque<int> *sort_deque(std::deque<int> *deque)
 		return deque;
 	}
 
-
 	std::deque<int> *p1 = new std::deque<int>;
 	std::deque<int> *p2 = new std::deque<int>;
 
@@ -172,19 +160,15 @@ std::deque<int> *sort_deque(std::deque<int> *deque)
 		it++;
 	}
 	delete deque;
-
-
 	p1 = sort_deque (p1);
 	p2 = sort_deque (p2);
-
 	deque = merge_deque(p1, p2);
+
 	delete p1;
 	delete p2;
 
 	return deque;
 }
-
-
 
 void PmergeMe::sort(int argc, char **argv)
 {
@@ -209,19 +193,18 @@ void PmergeMe::sort(int argc, char **argv)
 		list->push_back(std::atoi(argv[i]));
 	}
 
-std::cout << "Unsorted list: \n\t";
+std::cout << "Unsorted list: (" << deque->size() << " items):\n\t";
 	print_d(deque);
-
 
 std::cout << "\nDEQUE: ";
 	time_start = clock();
-	sort_deque(deque);
-	std::cout << "sorting time: " << ((float)(clock() - time_start)/CLOCKS_PER_SEC )* 1000000<< "us"<< std::endl;
+	deque = sort_deque(deque);
+	std::cout << "sorting time: " << ((double)(clock() - time_start)/CLOCKS_PER_SEC )<< " seconds"<< std::endl;
 
 std::cout << "LIST: ";
 	time_start = clock();
-	sort_list(list);
-	std::cout << "sorting time: " << ((float)(clock() - time_start)/CLOCKS_PER_SEC )* 1000000<< "us"<< std::endl;
+	list = sort_list(list);
+	std::cout << "sorting time: " << ((double)(clock() - time_start)/CLOCKS_PER_SEC )<< " seconds"<< std::endl;
 
 std::cout << "\nsorted list: \n\t";
 	print_d(deque);

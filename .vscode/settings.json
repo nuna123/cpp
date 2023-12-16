@@ -56,6 +56,6 @@
 		"iomanip": "cpp",
 		"sstream": "cpp"
 	},
-	"workbench.colorTheme": "Default High Contrast",
+	"workbench.colorTheme": "Default Dark+ Experimental",
 	"workbench.iconTheme": "vs-seti"
 }
