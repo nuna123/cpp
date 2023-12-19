@@ -54,7 +54,9 @@
 		"span": "cpp",
 		"optional": "cpp",
 		"iomanip": "cpp",
-		"sstream": "cpp"
+		"sstream": "cpp",
+		"chrono": "cpp",
+		"ratio": "cpp"
 	},
 	"workbench.colorTheme": "Default Dark+ Experimental",
 	"workbench.iconTheme": "vs-seti"

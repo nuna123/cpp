@@ -196,15 +196,17 @@ void PmergeMe::sort(int argc, char **argv)
 std::cout << "Unsorted list: (" << deque->size() << " items):\n\t";
 	print_d(deque);
 
+
+// std::cout << std::fixed;
 std::cout << "\nDEQUE: ";
 	time_start = clock();
 	deque = sort_deque(deque);
-	std::cout << "sorting time: " << ((double)(clock() - time_start)/CLOCKS_PER_SEC )<< " seconds"<< std::endl;
 
+	std::cout << "sorting time: " << (((double)(clock() - time_start)) / CLOCKS_PER_SEC) * 1000 << " ms"<< std::endl;
 std::cout << "LIST: ";
 	time_start = clock();
 	list = sort_list(list);
-	std::cout << "sorting time: " << ((double)(clock() - time_start)/CLOCKS_PER_SEC )<< " seconds"<< std::endl;
+	std::cout << "sorting time: " << (((double)(clock() - time_start)) / CLOCKS_PER_SEC) * 1000<< " ms"<< std::endl;
 
 std::cout << "\nsorted list: \n\t";
 	print_d(deque);
